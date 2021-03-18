@@ -15,8 +15,8 @@ Elementos contenidos en este repositorio:
 - [Video] - Video de presentacion del poster.
 
 
-   [Jupyter Notebook]: <https://github.com/joemccann/dillinger>
-   [Reporte LATEX]: <https://github.com/joemccann/dillinger.git>
-   [Reporte PDF]: <http://daringfireball.net>
-   [Póster]: <http://daringfireball.net/projects/markdown/>
+   [Jupyter Notebook]: <Proyecto_Google_Play_Store_Apps.ipynb>
+   [Reporte LATEX]: <Reporte/Reporte.tex>
+   [Reporte PDF]: <>
+   [Póster]: <>
    [Video]: <>
