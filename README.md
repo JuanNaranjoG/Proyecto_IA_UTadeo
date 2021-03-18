@@ -2,7 +2,7 @@
 
 # Proyecto: Google Play Store Apps
 
-## Descripción
+## Descripción 🎯
 ...
 ## Contenido 📋
 
