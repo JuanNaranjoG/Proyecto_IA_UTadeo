@@ -12,65 +12,240 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Proyecto Google Play Store Apps\\
-{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
-should not be used}
-}
+\title{Proyecto Google Play Store Apps}\\
 
-\author{
-\IEEEauthorblockN{1\textsuperscript{rd} Juan Fernando Naranjo Guzmán}
-\IEEEauthorblockA{\textit{Universidad Jorge Tadeo Lozano} \\
-\textit{Facultad de Ciencias Naturales e Ingeniería}\\
-Bogotá, Colombia \\
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Esneider Pantoja}
+\IEEEauthorblockA{\textit{Facultad de ciencias naturales}\\ { e ingenieria} \\
+\textit{Universidad De Bogota}\\ {Jorge Tadeo lozano}\\
+Bogota D.C \\
+esneider.pantojad@utadeo.edu.co}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Juan Naranjo}
+\IEEEauthorblockA{\textit{Facultad de ciencias naturales}\\{ e ingenieria} \\
+\textit{Universidad De Bogota}\\ {Jorge Tadeo lozano}\\
+Bogota D.C \\
 juanf.naranjog@utadeo.edu.co}
 \and
-\IEEEauthorblockN{2\textsuperscript{rd}Given Name Surnam}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\IEEEauthorblockN{3\textsuperscript{rd} Cristian Hernández}
+\IEEEauthorblockA{\textit{Facultad de ciencias naturales}\\{ e ingenieria} \\
+\textit{Universidad De Bogota}\\ {Jorge Tadeo lozano}\\
+Bogota D.C \\
+cristianc.hernandezs@utadeo.edu.co}
+
 }
 
 \maketitle
 
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+En el presente proyecto se contempla el proceso de analisis datos, basados en Google Play Store App.Una base de datos en la cual nos entregan 10 mil datos acerca de apps que ofrese play store.
+partiendo de una depuracion y organizacion de datos utilizando las herramientas de pyton como pandas, se logra una mejor visualizacionde los resultados que se presentan en el siguiente reporte 
 \end{abstract}
 
-\begin{IEEEkeywords}
-component, formatting, style, styling, insert
-\end{IEEEkeywords}
 
 \section{Introduccion}
 Si bien muchos conjuntos de datos públicos (en Kaggle y similares) proporcionan datos de la App Store de Apple, no hay muchos conjuntos de datos equivalentes disponibles para las aplicaciones de Google Play Store en la web. Al profundizar, descubrí que la página de la App Store de iTunes implementa una estructura similar a un apéndice bien indexada para permitir un raspado web simple y fácil. Por otro lado, Google Play Store utiliza sofisticadas técnicas modernas (como la carga dinámica de páginas) utilizando JQuery, lo que hace que el scraping sea más desafiante. 
 
 \section{Método de visualización}
 
-The IEEEtran class file is used to format your paper and style the text. All margins, 
-column widths, line spaces, and text fonts are prescribed; please do not 
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement 
-and others are deliberate, using specifications that anticipate your paper 
-as one part of the entire proceedings, and not as an independent document. 
-Please do not revise any of the current designations.
+Partiendo de la necesidad de tener resultados coherente y acordes a las necesidades del entorno se trabajo mediante la metodologia CRISP-DM  (Cross Industry Standard Process for Data Mining) para evaluar la trazabilidad de los datos entregados por la pagina kaggle: Google play store. Para ello se aplicaron los 6 pasos guia de dicha metodologia (comprensión del problema, comprensión de datos, preparación de datos, modelado, evaluación del modelo e implementación del mismo).
+
+Con un proceso inicial de limpieza, transformacion y revision de los datos usamos las herramientas entregadas en clase para tal fin.Con PYTHON como herramienta principal se uso (NUMPY) con sus extencion (PANDAS). para lograr un tratamiento de los datos entregados y asi obtener una visualizacion coherente y optima de los datos utilizables y operacionales para un analisis postumo, logrando una toma de desiciones acertiva.
+
 
 \section{Análisis de los datos}
-Before you begin to format your paper, first write and save the content as a 
-separate text file. Complete all content and organizational editing before 
-formatting. Please note sections \ref{AA}--\ref{SCM} below for more information on 
-proofreading, spelling and grammar.
 
-Keep your text and graphic files separate until after the text has been 
-formatted and styled. Do not number text heads---{\LaTeX} will do that 
-for you.
+\subsection {Comprensión del problema:}
+
+Se hizo entrega de una base de datos para nuestro archivo nos indica un total de 10841 registros dividos en 13 columnas \"Caracteristicas\" diferentes para un total de 140933 entradas.Es evidente la necesidad de aplicacion de tecnicas de Machine learning,para la depuracion de datos obsoletos o que esten fuera de contexto para las necesidades de nuestro proyecto.
+
+Nuestro objetivo es Identificar el tipo de applicaciones mas demandas dentro de la plataforma Google Play.bajo delimitaciones especificas de rangos de publico,como rango de edades de los ususrios, zonas geograficas de mayor demanda y aplicaciones de preferencia.\\
+
+\subsection {Comprensión de datos:}
+
+Nos dirigimos a la pagina kaggle: Google play store. Descargamos el conjunto de datos referentes al proyecto en la opcion \"Download (2 MB)\" la cual contiene los dataset del proyecto.
+Conjunto de datos:
+-googleplaystore.csv (1.3 MB) Este archivo contiene los detalles de las aplicaciones en Google Play. con 13 características que describen una aplicación dada.
+-googleplaystore_user_reviews.csv (7.31 MB) Este archivo contiene las primeras 100 reseñas \"más relevantes\" de cada aplicación. Cada texto/comentario de revisión ha sido preprocesado y atribuido con 3 características: Sentimiento, Polaridad del sentimiento y Subjetividad del sentimiento.
+-license.txt (165 B) Este trabajo tiene la licencia Creative Commons Attribution 3.0 Unported License. Para ver una copia de esta licencia, visite creativecommons.\\
+{
+\subsection {Preparación de datos:}
+
+Con la implementacion de Python lo primero en hacerse fue la importacion de las librerias:
+numpy es una libreria que da soporte para crear vectores y matrices grandes multidimensionales, junto con una gran colección de funciones matemáticas de alto nivel para operar con ellas.
+pandas Es una liberia como extensión de NumPy para manipulación y análisis de datos, en particular ofrece estructuras de datos y operaciones para manipular tablas numéricas y series temporales.
+
+-Para examinar el contenido del archivo ejecutamos la funcion head() que nos indica los 5 primeros registros del dataSet.
+
+\begin{figure} [h]
+  \centering
+   \includegraphics[width=1\linewidth]{tabla1.png}
+  \caption{“5 primeros registros del dataSet.” \cite{alajo2013aplicacion}}
+  \label{partes }
+\end{figure}
+
+}
+\\
+-Para saber todas las columnas de nuestro archivo ejecutamos el siguiente atributo de dataset >> colums esto nos permitira conocer todos las caracteristicas de nuestro archivo.
+
+\begin{figure} [h]
+  \centering
+   \includegraphics[width=0.5\linewidth]{tipo de datos.png}
+  \caption{“columnas del archivo.” \cite{alajo2013aplicacion}}
+  \label{partes }
+\end{figure}
+
+-Para conocer el tipo de datos de las columnas ejecutamos info().
+
+\begin{figure} [H]
+  \centering
+   \includegraphics[width=0.4\linewidth]{tipo de datos 2.png}
+  \caption{“tipos de datos.” \cite{alajo2013aplicacion}}
+  \label{partes }
+\end{figure}
+
+-Agrupamos nuestro conjunto de datos por \"Category\".
+Una vez agrupado nuestro conjunto de datos, generamos los datos estadisticos para aquellas categorias donde se pueda aplicar, esto se logra con describe()
+Con include = \'all\' obtenemos el conjunto estadistico de todas las columnas
+np.number incluye solo las columnas numericas del DataFrame\\
+
+% Table generated by Excel2LaTeX from sheet 'Hoja1'
+\begin{tabular}{|r|r|r|r|r|r|r|r|r|}
+\hline
+           &                                                                         \multicolumn{ 8}{|c|}{Rating} \\
+\hline
+           &      count &       mean &        std &        min &       25\% &       50\% &       75\% &        max \\
+\hline
+  Category &            &            &            &            &            &            &            &            \\
+\hline
+ART_AND_DESIGN &       62.0 &  4.358.065 &   0.358297 &        3.2 &      4.100 &        4.4 &      4.700 &        5.0 \\
+\hline
+AUTO_AND_VEHICLES &       73.0 &  4.190.411 &   0.543692 &        2.1 &      4.000 &        4.3 &      4.600 &        4.9 \\
+\hline
+    BEAUTY &       42.0 &  4.278.571 &   0.362603 &        3.1 &      4.000 &        4.3 &      4.575 &        4.9 \\
+\hline
+BOOKS_AND_REFERENCE &      178.0 &  4.346.067 &   0.429046 &        2.7 &      4.100 &        4.5 &      4.600 &        5.0 \\
+\hline
+  BUSINESS &      303.0 &  4.121.452 &   0.624422 &        1.0 &      3.900 &        4.3 &      4.500 &        5.0 \\
+\hline
+    COMICS &       58.0 &  4.155.172 &   0.537758 &        2.8 &      3.825 &        4.4 &      4.500 &        5.0 \\
+\hline
+COMMUNICATION &      328.0 &  4.158.537 &   0.426192 &        1.0 &      4.000 &        4.3 &      4.400 &        5.0 \\
+\hline
+    DATING &      195.0 &  3.970.769 &   0.630510 &        1.0 &      3.700 &        4.1 &      4.400 &        5.0 \\
+\hline
+ EDUCATION &      155.0 &  4.389.032 &   0.251894 &        3.5 &      4.200 &        4.4 &      4.600 &        4.9 \\
+\hline
+ENTERTAINMENT &      149.0 &  4.126.174 &   0.302556 &        3.0 &      3.900 &        4.2 &      4.300 &        4.7 \\
+\hline
+    EVENTS &       45.0 &  4.435.556 &   0.419499 &        2.9 &      4.200 &        4.5 &      4.700 &        5.0 \\
+\hline
+    FAMILY &     1747.0 &  4.192.272 &   0.508026 &        1.0 &      4.000 &        4.3 &      4.500 &        5.0 \\
+\hline
+   FINANCE &      323.0 &  4.131.889 &   0.642108 &        1.0 &      4.000 &        4.3 &      4.500 &        5.0 \\
+\hline
+FOOD_AND_DRINK &      109.0 &  4.166.972 &   0.548070 &        1.7 &      4.000 &        4.3 &      4.500 &        5.0 \\
+\hline
+      GAME &     1097.0 &  4.286.326 &   0.365375 &        1.0 &      4.100 &        4.4 &      4.500 &        5.0 \\
+\hline
+HEALTH_AND_FITNESS &      297.0 &  4.277.104 &   0.617822 &        1.4 &      4.100 &        4.5 &      4.600 &        5.0 \\
+\hline
+HOUSE_AND_HOME &       76.0 &  4.197.368 &   0.368411 &        2.8 &      4.000 &        4.3 &      4.500 &        4.8 \\
+\hline
+LIBRARIES_AND_DEMO &       65.0 &  4.178.462 &   0.378522 &        3.1 &      4.000 &        4.2 &      4.400 &        5.0 \\
+\hline
+ LIFESTYLE &      314.0 &  4.094.904 &   0.693907 &        1.5 &      3.800 &        4.2 &      4.600 &        5.0 \\
+\hline
+MAPS_AND_NAVIGATION &      124.0 &  4.051.613 &   0.519926 &        1.9 &      3.775 &        4.2 &      4.400 &        4.9 \\
+\hline
+   MEDICAL &      350.0 &  4.189.143 &   0.663581 &        1.0 &      4.000 &        4.3 &      4.600 &        5.0 \\
+\hline
+NEWS_AND_MAGAZINES &      233.0 &  4.132.189 &   0.536707 &        1.7 &      3.900 &        4.2 &      4.500 &        5.0 \\
+\hline
+ PARENTING &       50.0 &  4.300.000 &   0.517845 &        2.0 &      4.100 &        4.4 &      4.675 &        5.0 \\
+\hline
+PERSONALIZATION &      314.0 &  4.335.987 &   0.352732 &        2.5 &      4.200 &        4.4 &      4.600 &        5.0 \\
+\hline
+PHOTOGRAPHY &      317.0 &  4.192.114 &   0.462896 &        2.0 &      4.000 &        4.3 &      4.500 &        5.0 \\
+\hline
+PRODUCTIVITY &      351.0 &  4.211.396 &   0.504931 &        1.0 &      4.100 &        4.3 &      4.500 &        5.0 \\
+\hline
+  SHOPPING &      238.0 &  4.259.664 &   0.404577 &        1.6 &      4.100 &        4.3 &      4.500 &        5.0 \\
+\hline
+    SOCIAL &      259.0 &  4.255.598 &   0.413809 &        1.9 &      4.100 &        4.3 &      4.500 &        5.0 \\
+\hline
+    SPORTS &      319.0 &  4.223.511 &   0.427857 &        1.5 &      4.100 &        4.3 &      4.500 &        5.0 \\
+\hline
+     TOOLS &      734.0 &  4.047.411 &   0.616143 &        1.0 &      3.800 &        4.2 &      4.400 &        5.0 \\
+\hline
+TRAVEL_AND_LOCAL &      226.0 &  4.109.292 &   0.504691 &        2.2 &      3.900 &        4.3 &      4.400 &        5.0 \\
+\hline
+VIDEO_PLAYERS &      160.0 &  4.063.750 &   0.551098 &        1.8 &      3.800 &        4.2 &      4.400 &        4.9 \\
+\hline
+   WEATHER &       75.0 &  4.244.000 &   0.331353 &        3.3 &      4.050 &        4.3 &      4.500 &        4.8 \\
+\hline
+\end{tabular}\\  
+
+-Visualizacion de los datos
+
+\begin{figure} [H]
+  \centering
+   \includegraphics[width=0.8\linewidth]{grafico1.png}
+  \caption{“numero de calificaciones por categoria.” \cite{alajo2013aplicacion}}
+  \label{partes }
+\end{figure}
+
+- aplicaciones con calificacion de 5.
+
+% Table generated by Excel2LaTeX from sheet 'Hoja2'
+\begin{tabular}{|r|r|r|r|r|}
+\hline
+  Category &   Installs &        App &     Rating &            \\
+\hline
+       739 &   BUSINESS &         5+ & EB Cash Collections &        5.0 \\
+\hline
+       740 &     SOCIAL &        50+ & UP EB Bill Payment & Details &        5.0 \\
+\hline
+       741 &     SOCIAL &        10+ &    DN Blog &        5.0 \\
+\hline
+       742 &     SOCIAL &         5+ &  CB Heroes &        5.0 \\
+\hline
+       743 &       GAME &        50+ & Axe Champs! Wars &        5.0 \\
+\hline
+       ... &        ... &        ... &        ... &        ... \\
+\hline
+      1003 &       GAME &        10+ &     211:CK &        5.0 \\
+\hline
+      1004 &     DATING &       500+ & Spine- The dating app &        5.0 \\
+\hline
+      1005 &     DATING &       100+ & Online Girls Chat Group &        5.0 \\
+\hline
+      1006 &      TOOLS &       100+ & BK Formula Calculator &        5.0 \\
+\hline
+      1007 &      TOOLS &       100+ &  Jabbla BT &        5.0 \\
+\hline
+\end{tabular}  
+
+
+- tipos de personas que califican las apps:
+
+\begin{figure} [H]
+  \centering
+   \includegraphics[width=0.7\linewidth]{personas.png}
+  \caption{“tipos de personas que califican las apps.” \cite{alajo2013aplicacion}}
+  \label{partes }
+\end{figure}
+
+- Apps por genero
+
+\begin{figure} [h]
+  \centering
+   \includegraphics[width=0.7\linewidth]{GENEROS.png}
+  \caption{“Apps por genero.” \cite{alajo2013aplicacion}}
+  \label{partes }
+\end{figure}
+
+
 
 \section{Conclusiones}
 Define abbreviations and acronyms the first time they are used in the text, even after they have been defined in the abstract. Abbreviations such as IEEE, SI, MKS, CGS, ac, dc, and rms do not have to be defined. Do not use abbreviations in the title or heads unless they are unavoidable.
