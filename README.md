@@ -21,7 +21,7 @@ Elementos contenidos en este repositorio:
 
    [Jupyter Notebook]: <Jupiter_Notebook/Proyecto_Google_Play_Store_Apps.ipynb>
    [Reporte LATEX]: <Reporte/Reporte.tex>
-   [Reporte PDF]: <google_play_store.pdf>
+   [Reporte PDF]: <Reporte/Reporte.pdf>
    [Póster]: <>
    [Video]: <>
 
